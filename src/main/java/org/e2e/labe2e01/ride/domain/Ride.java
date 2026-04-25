@@ -1,9 +1,10 @@
 package org.e2e.labe2e01.ride.domain;
 
 import jakarta.persistence.*;
-import lombok.Getter;
+
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.Getter;
 import org.e2e.labe2e01.coordinate.domain.Coordinate;
 import org.e2e.labe2e01.driver.domain.Driver;
 import org.e2e.labe2e01.passenger.domain.Passenger;
@@ -48,5 +49,6 @@ public class Ride {
 
     @Column(columnDefinition = "VARCHAR(255)", nullable = false)
     private String originName;
+
 
 }
