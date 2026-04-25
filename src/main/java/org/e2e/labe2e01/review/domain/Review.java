@@ -24,6 +24,7 @@ public class Review {
     @JoinColumn(name = "author_id", nullable = false)
     private User author;
 
+    @ManyToOne
     @JoinColumn(name = "ride_id", nullable = false, unique = true)
     private Ride ride;
 
