@@ -4,12 +4,12 @@ package org.e2e.labe2e01.driver.application;
 import lombok.RequiredArgsConstructor;
 import org.e2e.labe2e01.driver.domain.Driver;
 import org.e2e.labe2e01.driver.domain.DriverService;
-import org.e2e.labe2e01.driver.infrastructure.DriverRepository;
 import org.e2e.labe2e01.vehicle.domain.Vehicle;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/driver")
@@ -24,15 +24,15 @@ public class DriverController {
     }
 
     @PostMapping
-    public ResponseEntity<Driver> save(@RequestBody Driver driver){
-        Driver driverguardado = service.save(driver);
+    public ResponseEntity<Driver> post(@RequestBody Driver driver){
+        Driver driverguardado = service.post(driver);
         return ResponseEntity.status(HttpStatus.CREATED).body(driverguardado);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteDriver(@PathVariable Long id){
         service.deleteDriver(id);
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/{id}")

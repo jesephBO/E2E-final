@@ -65,4 +65,6 @@ public class Coordinate {
     public void setPassengers(List<UserLocation> passengers) {
         this.passengers = passengers;
     }
+
+
 }

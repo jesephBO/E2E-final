@@ -19,15 +19,15 @@ public class PassengerController {
     private final PassengerService service;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Passenger> getPassenger(@PathVariable Long id){
-        Passenger passengerobt = service.getPassenger(id);
+    public ResponseEntity<Passenger> mostrarPassenger(@PathVariable Long id){
+        Passenger passengerobt = service.mostrarPassenger(id);
         return ResponseEntity.status(HttpStatus.OK).body(passengerobt);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<void> deletebyId(@PathVariable Long id){
-        service.deletebyId(id);
-        return ResponseEntity.notFound().build();
+    public ResponseEntity<Void> deletePassenger(@PathVariable Long id){
+        service.deletePassenger(id);
+        return ResponseEntity.noContent().build();
     }
 
     @PatchMapping("/{id}")
@@ -38,14 +38,14 @@ public class PassengerController {
 
     @GetMapping("/{id}/places")
     public ResponseEntity<List<Coordinate>> getbyPlace(@PathVariable Long id){
-        List<Coordinate> listadrivers= service.geybyPlace(id);
+        List<Coordinate> listadrivers= service.getbyPlace(id);
         return ResponseEntity.status(HttpStatus.OK).body(listadrivers);
     }
 
     @DeleteMapping("/{id}/places/{coordinateId}")
-    public ResponseEntity<void> deletebyCoordinateId(@PathVariable Long id, Long coordinateId){
+    public ResponseEntity<Void> deletebyCoordinateId(@PathVariable Long id,@PathVariable Long coordinateId){
         service.deletebyCoordinateId(id,coordinateId);
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.noContent().build();
     }
 
 
